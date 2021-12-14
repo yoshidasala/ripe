@@ -4,8 +4,14 @@ import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreen from "./components/LoginScreen";
+import LandingScreen from "./components/LandingScreen";
 import HomeScreen from "./components/HomeScreen";
+import SummerScreen from "./components/SummerScreen";
+// import WinterScreen from "./components/WinterScreen";
+// import FallScreen from "./components/FallScreen";
+// import SpringScreen from "./components/SpringScreen";
 import { auth } from "./firebase";
+
 
 const Stack = createNativeStackNavigator();
 
@@ -15,11 +21,41 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen
           options={{ headerShown: false }}
+          name='Landing'
+          component={LandingScreen}
+        />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name='Login'
+          component={LoginScreen}
+        />
+        <Stack.Screen
+          options={{ headerShown: false }}
           name='Home'
           component={HomeScreen}
         />
-        <Stack.Screen name='Login' component={LoginScreen} />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name='Summer'
+          component={SummerScreen}
+        />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name='Winter'
+          component={SummerScreen}
+        />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name='Fall'
+          component={SummerScreen}
+        />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name='Spring'
+          component={SummerScreen}
+        />
       </Stack.Navigator>
+
     </NavigationContainer>
   );
 }

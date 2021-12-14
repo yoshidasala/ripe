@@ -1,4 +1,4 @@
-// import { useNavigation } from '@react-navigation/core'
+import { NavigationContainer } from "@react-navigation/native";
 import React, { useEffect, useState } from "react";
 import {
   KeyboardAvoidingView,
@@ -12,8 +12,9 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 import { signOut } from "firebase/auth";
+import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
 
-export default function LoginScreen() {
+export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -44,16 +45,16 @@ export default function LoginScreen() {
         const user = userCredentials.user;
         console.log("Logged in with:", user.email);
         setLoggedIn(true);
+        navigation.navigate("Home");
       })
 
       .catch((error) => alert(error.message));
   };
   const handleSignOut = () => {
     signOut(auth)
-      .then((userCredentials) => {
-        const user = userCredentials.user;
-        console.log("Logged in with:", user.email);
+      .then((re) => {
         setLoggedIn(false);
+        navigation.navigate("Landing");
       })
 
       .catch((error) => alert(error.message));
@@ -91,7 +92,7 @@ export default function LoginScreen() {
             onPress={handleSignUp}
             style={[styles.button, styles.buttonOutline]}
           >
-            <Text style={styles.buttonOutlineText}>REGISTER</Text>
+            <Text style={styles.buttonText}>REGISTER</Text>
           </TouchableOpacity>
         </View>
       )}
@@ -106,13 +107,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   inputContainer: {
-    width: "80%",
+    width: "30%",
   },
   input: {
     backgroundColor: "#F2f2f2",
     paddingHorizontal: 15,
     paddingVertical: 10,
-    borderRadius: 10,
+    borderRadius: 4,
     marginTop: 5,
     shadowColor: "#000",
     shadowOffset: {
@@ -131,16 +132,10 @@ const styles = StyleSheet.create({
     marginTop: 40,
   },
   button: {
-    backgroundColor: "#FCFBFC",
     width: "100%",
     padding: 15,
-    borderRadius: 10,
+
     alignItems: "center",
-  },
-  buttonOutline: {
-    marginTop: 5,
-    borderColor: "#FCFBFC",
-    borderWidth: 2,
   },
   buttonText: {
     color: "#9A9A9A",
