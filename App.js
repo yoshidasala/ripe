@@ -5,6 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreen from "./components/LoginScreen";
 import HomeScreen from "./components/HomeScreen";
+import { auth } from "./firebase";
 
 const Stack = createNativeStackNavigator();
 
@@ -17,7 +18,7 @@ export default function App() {
           name='Home'
           component={HomeScreen}
         />
-        {/* <Stack.Screen name='Login' component={LoginScreen} /> */}
+        <Stack.Screen name='Login' component={LoginScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

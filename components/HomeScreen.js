@@ -1,14 +1,20 @@
+import { NavigationContainer } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { Button, StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Text>RIPE</Text>
       <StatusBar style='auto' />
       <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>START</Text>
+        <Text
+          onPress={() => navigation.navigate("Login")}
+          style={styles.buttonText}
+        >
+          START
+        </Text>
       </TouchableOpacity>
     </View>
   );
@@ -17,15 +23,17 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#E5E5E5",
+    backgroundColor: "#FCFBFC",
     alignItems: "center",
     justifyContent: "center",
+    
   },
   button: {
-    backgroundColor: "#0782F9",
+    fontcolor: "#949494",
     width: "40%",
     padding: 15,
     borderRadius: 10,
     alignItems: "center",
+    shadow: "20px",
   },
 });
