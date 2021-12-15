@@ -21,12 +21,12 @@ import { FlatGrid } from "react-native-super-grid";
 
 export default function SpringScreen({ navigation }) {
   const [items, setItems] = useState([
-    { name: "watermelon", code: "#1abc9c", img: "../assets/summer.png" },
-    { name: "peach", code: "#2ecc71", img: "../assets/summer.png" },
-    { name: "yuzu", code: "#3498db", img: "../assets/summer.png" },
-    { name: "uni . sea urchin", code: "#9b59b6", img: "../assets/summer.png" },
+    { name: "potato", code: "#1abc9c", img: "../assets/summer.png" },
+    { name: "bamboo shoots", code: "#2ecc71", img: "../assets/summer.png" },
+    { name: "citrus", code: "#3498db", img: "../assets/summer.png" },
+    { name: "soramame", code: "#9b59b6", img: "../assets/summer.png" },
     { name: "edmame", code: "#34495e", img: "../assets/summer.png" },
-    { name: "muskmelon", code: "#16a085", img: "../assets/summer.png" },
+    { name: "asparagus", code: "#16a085", img: "../assets/summer.png" },
   ]);
 
   return (

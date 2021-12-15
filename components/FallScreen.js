@@ -21,12 +21,12 @@ import { FlatGrid } from "react-native-super-grid";
 
 export default function FallScreen({ navigation }) {
   const [items, setItems] = useState([
-    { name: "watermelon", code: "#1abc9c", img: "../assets/summer.png" },
-    { name: "peach", code: "#2ecc71", img: "../assets/summer.png" },
-    { name: "yuzu", code: "#3498db", img: "../assets/summer.png" },
-    { name: "uni . sea urchin", code: "#9b59b6", img: "../assets/summer.png" },
-    { name: "edmame", code: "#34495e", img: "../assets/summer.png" },
-    { name: "muskmelon", code: "#16a085", img: "../assets/summer.png" },
+    { name: "shiitake", code: "#1abc9c", img: "../assets/summer.png" },
+    { name: "sweet Potato", code: "#2ecc71", img: "../assets/summer.png" },
+    { name: "", code: "#3498db", img: "../assets/summer.png" },
+    { name: "japanese chestnut", code: "#9b59b6", img: "../assets/summer.png" },
+    { name: "fig", code: "#34495e", img: "../assets/summer.png" },
+    { name: "kaki . persimmon", code: "#16a085", img: "../assets/summer.png" },
   ]);
 
   return (

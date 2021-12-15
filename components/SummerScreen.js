@@ -24,8 +24,8 @@ export default function SummerScreen({ navigation }) {
     { name: "watermelon", code: "#1abc9c", img: "../assets/summer.png" },
     { name: "peach", code: "#2ecc71", img: "../assets/summer.png" },
     { name: "yuzu", code: "#3498db", img: "../assets/summer.png" },
-    { name: "uni . sea urchin", code: "#9b59b6", img: "../assets/summer.png" },
-    { name: "edmame", code: "#34495e", img: "../assets/summer.png" },
+    { name: "uni", code: "#9b59b6", img: "../assets/summer.png" },
+    { name: "edamame", code: "#34495e", img: "../assets/summer.png" },
     { name: "muskmelon", code: "#16a085", img: "../assets/summer.png" },
   ]);
 
