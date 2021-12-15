@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     borderRadius: 5,
     padding: 20,
-    height: 100,
+    height: 50,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
