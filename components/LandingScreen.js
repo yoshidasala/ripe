@@ -18,7 +18,6 @@ export default function LandingScreen({ navigation }) {
           START
         </Text>
       </TouchableOpacity>
-
     </View>
   );
 }

@@ -13,26 +13,19 @@ import { collection, getDocs, doc, setDoc } from "firebase/firestore/lite";
 
 import * as Location from "expo-location";
 import summer from "../assets/summer.png";
+import fall from "../assets/fall.png";
 import winter from "../assets/winter.png";
+import spring from "../assets/spring.png";
 import BottomTabNav from "./BottomTabNav";
 import { auth } from "../firebase";
 import { db } from "../firebase";
 import { signOut } from "firebase/auth";
 import { Component } from "react";
 
-// Geocoder.init("AIzaSyAYEsNqTwsN_zap_PtZRWrsQBACrrLA23g"); // use a valid API key
-
 export default function HomeScreen({ navigation }) {
   const [error, setError] = useState("");
   const [location, setLocation] = useState({});
 
-  const getSeason = (d) => Math.floor((d.getMonth() / 12) * 4) % 4;
-
-  console.log("Southern hemisphere (Summer as Dec/Jan/Feb etc...):");
-  console.log(["Summer", "Autumn", "Winter", "Spring"][getSeason(new Date())]);
-
-  console.log("Northern hemisphere (Winter as Dec/Jan/Feb etc...):");
-  console.log(["Winter", "Spring", "Summer", "Autumn"][getSeason(new Date())]);
   useEffect(() => {
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
@@ -77,42 +70,67 @@ export default function HomeScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.button}>
-        {location === {} ? (
-          "...loading"
-        ) : (
-          <Text style={styles.buttonText}>
-            Your Current Location is {text.city},{text.country}
-          </Text>
-        )}
-      </TouchableOpacity>
-      <Text style={styles.title}>Home</Text>
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity
-          onPress={() => navigation.navigate("Winter")}
-          style={styles.button}
-        >
-          <Text style={styles.buttonText}>WINTER</Text>
-          <Image
-            source={winter}
-            style={{ width: 20, height: 20, margin: 10 }}
-          />
+      <Text style={styles.buttonText}>WELCOME BACK SALA</Text>
+      <br />
+
+
+      <br />
+      <TouchableOpacity
+        onPress={() => navigation.navigate("Spring")}
+        style={styles.home}
+      >
+          <Image source={summer} style={{ width: 20, height: 20, margin: 10 }} />
+        <TouchableOpacity style={styles.button}>
+          {location === undefined ? (
+            "...loading"
+          ) : (
+            <Text style={styles.buttonText}>
+              The current season at {text.city},{text.country} is Summer
+            </Text>
+          )}
         </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => navigation.navigate("Summer")}
-          style={styles.button}
-        >
-          <Text style={styles.buttonText}> SUMMER</Text>
+
+
+      </TouchableOpacity>
+
+      <View style={styles.nav}>
+        <TouchableOpacity onPress={handleSignOut} style={styles.button}>
+          <Text style={styles.buttonText}> LOGOUT</Text>
 
           <Image
             source={summer}
             style={{ width: 20, height: 20, margin: 10 }}
           />
         </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Winter")}
+          style={styles.button}
+        >
+          <Text style={styles.buttonText}> WINTER</Text>
 
-        {/* <BottomTabNav /> */}
-        <TouchableOpacity onPress={handleSignOut} style={styles.button}>
-          <Text style={styles.buttonText}>LOGOUT</Text>
+          <Image
+            source={winter}
+            style={{ width: 20, height: 20, margin: 10 }}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Fall")}
+          style={styles.button}
+        >
+          <Text style={styles.buttonText}> FALL</Text>
+
+          <Image source={fall} style={{ width: 20, height: 20, margin: 10 }} />
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Spring")}
+          style={styles.button}
+        >
+          <Text style={styles.buttonText}> SPRING</Text>
+
+          <Image
+            source={spring}
+            style={{ width: 20, height: 20, margin: 10 }}
+          />
         </TouchableOpacity>
       </View>
       <StatusBar style='auto' />
@@ -135,7 +153,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     shadow: "20px",
   },
+  home: {
+    fontcolor: "#949494",
+    width: "100%",
+    padding: 15,
+    borderRadius: 10,
+    alignItems: "center",
+    shadow: "20px",
+  },
   title: {
+    marginTop: 100,
     alignItems: "center",
     textDecorationColor: "red",
     textDecorationLine: "line-through",
@@ -151,5 +178,10 @@ const styles = StyleSheet.create({
     color: "#9A9A9A",
 
     fontSize: 10,
+  },
+  nav: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-evenly",
   },
 });

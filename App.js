@@ -8,15 +8,14 @@ import LandingScreen from "./components/LandingScreen";
 import HomeScreen from "./components/HomeScreen";
 import SummerScreen from "./components/SummerScreen";
 import WinterScreen from "./components/WinterScreen";
-// import FallScreen from "./components/FallScreen";
-// import SpringScreen from "./components/SpringScreen";
-// import Geocoder from 'react-native-geocoding';
+import FallScreen from "./components/FallScreen";
+import SpringScreen from "./components/SpringScreen";
+
 import { auth } from "./firebase";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-  // Geocoder.init("AIzaSyAYEsNqTwsN_zap_PtZRWrsQBACrrLA23g"); // use a valid API key
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -45,16 +44,16 @@ export default function App() {
           name='Winter'
           component={WinterScreen}
         />
-        {/* <Stack.Screen
+        <Stack.Screen
           options={{ headerShown: false }}
           name='Fall'
-          component={SummerScreen}
+          component={FallScreen}
         />
         <Stack.Screen
           options={{ headerShown: false }}
           name='Spring'
-          component={SummerScreen}
-        /> */}
+          component={SpringScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
