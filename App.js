@@ -7,7 +7,7 @@ import LoginScreen from "./components/LoginScreen";
 import LandingScreen from "./components/LandingScreen";
 import HomeScreen from "./components/HomeScreen";
 import SummerScreen from "./components/SummerScreen";
-// import WinterScreen from "./components/WinterScreen";
+import WinterScreen from "./components/WinterScreen";
 // import FallScreen from "./components/FallScreen";
 // import SpringScreen from "./components/SpringScreen";
 // import Geocoder from 'react-native-geocoding';
@@ -43,9 +43,9 @@ export default function App() {
         <Stack.Screen
           options={{ headerShown: false }}
           name='Winter'
-          component={SummerScreen}
+          component={WinterScreen}
         />
-        <Stack.Screen
+        {/* <Stack.Screen
           options={{ headerShown: false }}
           name='Fall'
           component={SummerScreen}
@@ -54,7 +54,7 @@ export default function App() {
           options={{ headerShown: false }}
           name='Spring'
           component={SummerScreen}
-        />
+        /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

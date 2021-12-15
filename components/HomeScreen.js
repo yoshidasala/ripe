@@ -12,7 +12,8 @@ import {
 import { collection, getDocs, doc, setDoc } from "firebase/firestore/lite";
 
 import * as Location from "expo-location";
-import summer from '../assets/summer.svg'
+import summer from "../assets/summer.png";
+import winter from "../assets/winter.png";
 import BottomTabNav from "./BottomTabNav";
 import { auth } from "../firebase";
 import { db } from "../firebase";
@@ -87,24 +88,32 @@ export default function HomeScreen({ navigation }) {
       </TouchableOpacity>
       <Text style={styles.title}>Home</Text>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity onPress={handleSignOut} style={styles.button}>
-          <Text style={styles.buttonText}>LOGOUT</Text>
-        </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => navigation.navigate("WINTER")}
+          onPress={() => navigation.navigate("Winter")}
           style={styles.button}
         >
           <Text style={styles.buttonText}>WINTER</Text>
+          <Image
+            source={winter}
+            style={{ width: 20, height: 20, margin: 10 }}
+          />
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => navigation.navigate("WINTER")}
+          onPress={() => navigation.navigate("Summer")}
           style={styles.button}
         >
-          <Text style={styles.buttonText}>SUMMER</Text>
+          <Text style={styles.buttonText}> SUMMER</Text>
 
+          <Image
+            source={summer}
+            style={{ width: 20, height: 20, margin: 10 }}
+          />
         </TouchableOpacity>
-        <Image source={summer} style = {{width:"305",height:"159"}}/>
+
         {/* <BottomTabNav /> */}
+        <TouchableOpacity onPress={handleSignOut} style={styles.button}>
+          <Text style={styles.buttonText}>LOGOUT</Text>
+        </TouchableOpacity>
       </View>
       <StatusBar style='auto' />
     </View>
