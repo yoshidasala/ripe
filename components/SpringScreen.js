@@ -21,12 +21,12 @@ import { FlatGrid } from "react-native-super-grid";
 
 export default function SpringScreen({ navigation }) {
   const [items, setItems] = useState([
-    { name: "potato", code: "#1abc9c", img: "../assets/summer.png" },
-    { name: "bamboo shoots", code: "#2ecc71", img: "../assets/summer.png" },
-    { name: "citrus", code: "#3498db", img: "../assets/summer.png" },
-    { name: "soramame", code: "#9b59b6", img: "../assets/summer.png" },
-    { name: "edmame", code: "#34495e", img: "../assets/summer.png" },
-    { name: "asparagus", code: "#16a085", img: "../assets/summer.png" },
+    { name: "potato", code: "#1abc9c",  color: "#E1E7D0" },
+    { name: "bamboo shoots", code: "#2ecc71",  color: "#E1E7D0" },
+    { name: "citrus", code: "#3498db", color: "#E1E7D0" },
+    { name: "soramame", code: "#9b59b6",  color: "#E1E7D0" },
+    { name: "edmame", code: "#34495e",  color: "#E1E7D0" },
+    { name: "asparagus", code: "#16a085",  color: "#E1E7D0" },
   ]);
 
   return (
@@ -44,9 +44,14 @@ export default function SpringScreen({ navigation }) {
         renderItem={({ item }) => (
           <View style={[styles.itemContainer, { backgroundColor: "#ecf0f1" }]}>
             <Text style={styles.itemName}>{item.name}</Text>
-            <Image
-              source={item.img}
-              style={{ width: 20, height: 20, margin: 10 }}
+            <View
+              style={{
+                alignSelf: "center",
+                width: 20,
+                height: 20,
+                borderRadius: 100 / 2,
+                backgroundColor: `${item.color}`,
+              }}
             />
           </View>
         )}
@@ -64,7 +69,7 @@ export default function SpringScreen({ navigation }) {
           />
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => navigation.navigate("Home")}
+          onPress={() => navigation.navigate("Winter")}
           style={styles.button}
         >
           <Text style={styles.buttonText}> WINTER</Text>
@@ -75,7 +80,7 @@ export default function SpringScreen({ navigation }) {
           />
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => navigation.navigate("Home")}
+          onPress={() => navigation.navigate("Fall")}
           style={styles.button}
         >
           <Text style={styles.buttonText}> FALL</Text>
@@ -83,7 +88,7 @@ export default function SpringScreen({ navigation }) {
           <Image source={fall} style={{ width: 20, height: 20, margin: 10 }} />
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => navigation.navigate("Home")}
+          onPress={() => navigation.navigate("Summer")}
           style={styles.button}
         >
           <Text style={styles.buttonText}> SUMMER</Text>

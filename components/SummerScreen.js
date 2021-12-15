@@ -21,12 +21,12 @@ import { FlatGrid } from "react-native-super-grid";
 
 export default function SummerScreen({ navigation }) {
   const [items, setItems] = useState([
-    { name: "watermelon", code: "#1abc9c", img: "../assets/summer.png" },
-    { name: "peach", code: "#2ecc71", img: "../assets/summer.png" },
-    { name: "yuzu", code: "#3498db", img: "../assets/summer.png" },
-    { name: "uni", code: "#9b59b6", img: "../assets/summer.png" },
-    { name: "edamame", code: "#34495e", img: "../assets/summer.png" },
-    { name: "muskmelon", code: "#16a085", img: "../assets/summer.png" },
+    { name: "watermelon", code: "#1abc9c", color: "#ED6665" },
+    { name: "peach", code: "#2ecc71", color: "#FFCBA4" },
+    { name: "yuzu", code: "#3498db", color: "#E5C78E" },
+    { name: "uni", code: "#9b59b6", color: "#E2D0B6" },
+    { name: "edamame", code: "#34495e", color: "#9CA38A" },
+    { name: "muskmelon", code: "#16a085", color: "#BDD49A" },
   ]);
 
   return (
@@ -44,9 +44,15 @@ export default function SummerScreen({ navigation }) {
         renderItem={({ item }) => (
           <View style={[styles.itemContainer, { backgroundColor: "#ecf0f1" }]}>
             <Text style={styles.itemName}>{item.name}</Text>
-            <Image
-              source={item.img}
-              style={{ width: 20, height: 20, margin: 10 }}
+
+            <View
+              style={{
+                alignSelf: "center",
+                width: 20,
+                height: 20,
+                borderRadius: 100 / 2,
+                backgroundColor: `${item.color}`,
+              }}
             />
           </View>
         )}

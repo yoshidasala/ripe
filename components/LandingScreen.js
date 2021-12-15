@@ -10,13 +10,18 @@ export default function LandingScreen({ navigation }) {
     <View style={styles.container}>
       <Text style={styles.title}>RIPE</Text>
       <StatusBar style='auto' />
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("Login")}
+        style={styles.button}
+      >
         <Text
           onPress={() => navigation.navigate("Login")}
           style={styles.buttonText}
         >
           START
         </Text>
+        <br />
+        <View style={styles.circle} />
       </TouchableOpacity>
     </View>
   );
@@ -36,10 +41,24 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: "center",
     shadow: "20px",
+    display: "flex",
+    flexDirection: "column",
+  },
+  buttonText: {
+    color: "#9A9A9A",
+
+    fontSize: 10,
   },
   title: {
     alignItems: "center",
     textDecorationColor: "red",
     textDecorationLine: "line-through",
+  },
+  circle: {
+    alignSelf: "center",
+    width: 20,
+    height: 20,
+    borderRadius: 100 / 2,
+    backgroundColor: "#EB5C6E",
   },
 });

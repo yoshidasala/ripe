@@ -21,12 +21,12 @@ import { FlatGrid } from "react-native-super-grid";
 
 export default function WinterScreen({ navigation }) {
   const [items, setItems] = useState([
-    { name: "daikon radish", code: "#1abc9c", img: "../assets/summer.png" },
-    { name: "strawberry", code: "#2ecc71", img: "../assets/summer.png" },
-    { name: "apple", code: "#3498db", img: "../assets/summer.png" },
-    { name: "renkon", code: "#9b59b6", img: "../assets/summer.png" },
-    { name: "cabbage", code: "#34495e", img: "../assets/summer.png" },
-    { name: "mikan", code: "#16a085", img: "../assets/summer.png" },
+    { name: "daikonradish", code: "#1abc9c", color: "#E1E7D0" },
+    { name: "strawberry", code: "#2ecc71", color: "#FF9293" },
+    { name: "apple", code: "#3498db", color: "#bbe693" },
+    { name: "renkon", code: "#9b59b6", color: "#E4DDCA" },
+    { name: "cabbage", code: "#34495e", color: "#EAEDB4" },
+    { name: "mikan", code: "#16a085", color: "#FFBA68" },
   ]);
 
   return (
@@ -44,9 +44,14 @@ export default function WinterScreen({ navigation }) {
         renderItem={({ item }) => (
           <View style={[styles.itemContainer, { backgroundColor: "#ecf0f1" }]}>
             <Text style={styles.itemName}>{item.name}</Text>
-            <Image
-              source={item.img}
-              style={{ width: 20, height: 20, margin: 10 }}
+            <View
+              style={{
+                alignSelf: "center",
+                width: 20,
+                height: 20,
+                borderRadius: 100 / 2,
+                backgroundColor: `${item.color}`,
+              }}
             />
           </View>
         )}
@@ -128,7 +133,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     borderRadius: 5,
     padding: 20,
-    height: 50,
+    height: 100,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,

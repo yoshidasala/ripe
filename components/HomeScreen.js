@@ -73,13 +73,12 @@ export default function HomeScreen({ navigation }) {
       <Text style={styles.buttonText}>WELCOME BACK SALA</Text>
       <br />
 
-
       <br />
       <TouchableOpacity
-        onPress={() => navigation.navigate("Spring")}
+        onPress={() => navigation.navigate("Summer")}
         style={styles.home}
       >
-          <Image source={summer} style={{ width: 20, height: 20, margin: 10 }} />
+        <Image source={summer} style={{ width: 20, height: 20, margin: 10 }} />
         <TouchableOpacity style={styles.button}>
           {location === undefined ? (
             "...loading"
@@ -89,8 +88,6 @@ export default function HomeScreen({ navigation }) {
             </Text>
           )}
         </TouchableOpacity>
-
-
       </TouchableOpacity>
 
       <View style={styles.nav}>

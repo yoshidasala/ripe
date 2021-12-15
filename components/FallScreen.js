@@ -22,8 +22,8 @@ import { FlatGrid } from "react-native-super-grid";
 export default function FallScreen({ navigation }) {
   const [items, setItems] = useState([
     { name: "shiitake", code: "#1abc9c", img: "../assets/summer.png" },
-    { name: "sweet Potato", code: "#2ecc71", img: "../assets/summer.png" },
-    { name: "", code: "#3498db", img: "../assets/summer.png" },
+    { name: "sweet potato", code: "#2ecc71", img: "../assets/summer.png" },
+    { name: "kabocha", code: "#3498db", img: "../assets/summer.png" },
     { name: "japanese chestnut", code: "#9b59b6", img: "../assets/summer.png" },
     { name: "fig", code: "#34495e", img: "../assets/summer.png" },
     { name: "kaki . persimmon", code: "#16a085", img: "../assets/summer.png" },
@@ -44,9 +44,14 @@ export default function FallScreen({ navigation }) {
         renderItem={({ item }) => (
           <View style={[styles.itemContainer, { backgroundColor: "#ecf0f1" }]}>
             <Text style={styles.itemName}>{item.name}</Text>
-            <Image
-              source={item.img}
-              style={{ width: 20, height: 20, margin: 10 }}
+            <View
+              style={{
+                alignSelf: "center",
+                width: 20,
+                height: 20,
+                borderRadius: 100 / 2,
+                backgroundColor: `${item.color}`,
+              }}
             />
           </View>
         )}
