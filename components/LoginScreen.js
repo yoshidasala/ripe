@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
     fontSize: 10,
   },
   buttonOutlineText: {
-    color: "9A9A9A",
+    color: "#9A9A9A",
 
     fontSize: 10,
   },
