@@ -4,6 +4,9 @@ import React from "react";
 import { Button, StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
 import BottomTabNav from "./BottomTabNav";
+import LottieView from 'lottie-react-native';
+import rip from "../assets/ripple.json";
+
 
 export default function LandingScreen({ navigation }) {
   return (
@@ -23,6 +26,13 @@ export default function LandingScreen({ navigation }) {
         <br />
         <View style={styles.circle} />
       </TouchableOpacity>
+      {/* <LottieView
+            style={{
+              width: 400,
+              height: 400,
+              backgroundColor: '#eee',
+        }}
+        source={rip} autoPlay loop />; */}
     </View>
   );
 }
