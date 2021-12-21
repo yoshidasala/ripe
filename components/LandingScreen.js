@@ -1,7 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { Button, StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { Platform,Button, StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
 import BottomTabNav from "./BottomTabNav";
 import LottieView from "lottie-react-native";
