@@ -4,9 +4,7 @@ import React from "react";
 import { Button, StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
 import BottomTabNav from "./BottomTabNav";
-import LottieView from 'lottie-react-native';
-import rip from "../assets/ripple.json";
-
+import LottieView from "lottie-react-native";
 
 export default function LandingScreen({ navigation }) {
   return (
@@ -26,13 +24,11 @@ export default function LandingScreen({ navigation }) {
         <br />
         <View style={styles.circle} />
       </TouchableOpacity>
-      {/* <LottieView
-            style={{
-              width: 400,
-              height: 400,
-              backgroundColor: '#eee',
-        }}
-        source={rip} autoPlay loop />; */}
+      <LottieView
+        style={styles.lottieplant}
+        source={require("../assets/plant.json")}
+        autoPlay
+      />
     </View>
   );
 }
@@ -70,5 +66,9 @@ const styles = StyleSheet.create({
     height: 20,
     borderRadius: 100 / 2,
     backgroundColor: "#EB5C6E",
+  },
+  lottieplant: {
+    width: 150,
+    height: 150,
   },
 });
